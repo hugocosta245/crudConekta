@@ -20,14 +20,14 @@ As tecnologias utilizadas para o desenvolvimento da aplicação base foram:
     link_ref.: https://hub.docker.com/editions/community/docker-ce-desktop-windows
  
     ps.: para validar a instalação execute em um terminal:
-		* ```docker --version``` (deverá aparecer a versão instalada)
-		* ```docker-compose --version``` (deverá aparecer a versão instalada)
+    ```docker --version``` (deverá aparecer a versão instalada)
+    ```docker-compose --version``` (deverá aparecer a versão instalada)
  * Tenha o Composer instalado na sua maquina.
     
     link_ref.: https://getcomposer.org/download/
     
     ps.: para validar a instalação execute em um terminal 
-		* ```composer --version``` (deverá aparecer a versão instalada)
+    ```composer --version``` (deverá aparecer a versão instalada)
  
  ### Subindo os containers
 
