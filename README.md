@@ -47,7 +47,7 @@ As tecnologias utilizadas para o desenvolvimento da aplicação base foram:
 
  ### Banco de dados
 
- Ao subir o container, será criado uma tabela ```usuarios``` e será inserido 4 registros na mesma, para mais detalhes da mesma, analisar arquivo ```myDb.sql``` que se encontra na raiz do projeto.
+ Ao subir o container, será criado uma tabela ```usuarios``` e será inserido 4 registros na mesma, para mais detalhes, analisar arquivo ```myDb.sql``` que se encontra na raiz do projeto.
 
 
 ## Objetivos
