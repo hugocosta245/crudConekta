@@ -52,7 +52,7 @@ As tecnologias utilizadas para o desenvolvimento da aplicação base foram:
 ## Objetivos
  * Criar mascara para a coluna CPF;
  * Criar estrutura para poder inserir novo usuario;
- * Adicionar botão em todas as linhas da tabela para poder excluir usuario do banco;
+ * Adicionar botão em todas as linhas da tabela para excluir usuario do banco;
  * Adicionar botão em todas as linhas da tabela para editar os dados dos usuarios e criar estrutura para editar os usuarios;
 
 
