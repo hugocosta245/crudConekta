@@ -15,14 +15,14 @@ As tecnologias utilizadas para o desenvolvimento da aplicação base foram:
 
 ## Configuração rápida
  ### Requisitos
- * Tenha o Docker e Docker-Compose instalado em sua maquina;
+ * Instale o Docker e o Docker-Compose em sua maquina;
  
     link_ref.: https://hub.docker.com/editions/community/docker-ce-desktop-windows
  
     Para validar a instalação execute em um terminal:
     * ```docker --version``` (deverá aparecer a versão instalada)
     * ```docker-compose --version``` (deverá aparecer a versão instalada)
- * Tenha o Composer instalado na sua maquina.
+ * Instale o Composer em sua maquina.
     
     link_ref.: https://getcomposer.org/download/
     
@@ -38,8 +38,7 @@ As tecnologias utilizadas para o desenvolvimento da aplicação base foram:
    
     ps.: será criado uma pasta ```vendor``` e um arquivo ```composer.lock``` na raiz do seu projeto
  
- * Agora vamos subir os containers, para isso acesse o terminal na pasta raiz e execute:
-    -> ```docker-compose up -d```
+ * Agora vamos subir os containers, para isso acesse o terminal na pasta raiz e execute:```docker-compose up -d```
  * Para validar se os containers estão executando corretamente, 
     execute ```docker ps``` deverá aparecer dois container, um do apache e outro do mysql.
 
@@ -47,8 +46,8 @@ As tecnologias utilizadas para o desenvolvimento da aplicação base foram:
 
  ### Banco de dados
 
- Ao subir o container, já será criado uma tabela 'usuarios' e será inserido 4 registros na mesma, para mais detalhes da mesma, analisar arquivo myDb.sql que se encontra na raiz do projeto.
-
+ Ao subir o container, será criado uma tabela ```usuarios``` e será inserido 4 registros na mesma, para mais detalhes da mesma, analisar arquivo ```myDb.sql``` que se encontra na raiz do projeto.
+ 
 
 ## Objetivos
  * Criar mascara para a coluna CPF;
