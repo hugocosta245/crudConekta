@@ -1,6 +1,6 @@
 # Desafio FullStack Jr.
 
-Este é um projeto base para alinhamento técnico de desenvolvedor fullstack jr.O mesmo foi montado em cima de imagens docker (apache e mysql), não utilizamos nenhum framework para criação do mesmo, a arquitetura utilizada é o MVC e foi utilizado o composer para a geração do arquivo de autoload.
+Este é um projeto base para alinhamento técnico de desenvolvedor fullstack jr. O mesmo foi montado em cima de imagens docker (apache e mysql), não utilizamos nenhum framework para criação do mesmo, a arquitetura utilizada é o MVC e foi utilizado o composer para a geração do arquivo de autoload.
 
 As tecnologias utilizadas para o desenvolvimento da aplicação base foram:
 	
@@ -16,26 +16,26 @@ As tecnologias utilizadas para o desenvolvimento da aplicação base foram:
 ## Configuração rápida
  ### Requisitos
  * Tenha o Docker e Docker-Compose instalado em sua maquina;
-	link_ref.: https://hub.docker.com/editions/community/docker-ce-desktop-windows
-	ps.: para validar a instalação execute em um terminal:
-		* docker --version (deverá aparecer a versão instalada)
-		* docker-compose --version (deverá aparecer a versão instalada)
+    link_ref.: https://hub.docker.com/editions/community/docker-ce-desktop-windows
+    ps.: para validar a instalação execute em um terminal:
+		* ```docker --version``` (deverá aparecer a versão instalada)
+		* ```docker-compose --version``` (deverá aparecer a versão instalada)
  * Tenha o Composer instalado na sua maquina.
-		link_ref.: https://getcomposer.org/download/
-		ps.: para validar a instalação execute em um terminal 
-			* composer --version (deverá aparecer a versão instalada)
+    link_ref.: https://getcomposer.org/download/
+    ps.: para validar a instalação execute em um terminal 
+		* ```composer --version``` (deverá aparecer a versão instalada)
  
  ### Subindo os containers
 
  Apos atender os requistos, vamos começar a configurar seu ambiente.
  
  * Acesse através de um terminal a pasta raiz do projeto
- * Execute no terminal -> composer install
+ * Execute no terminal -> ```composer install```
     ps.: será criado uma pasta vendor e um arquivo composer.lock na raiz do seu projeto
  * Agora vamos subir os containers, para isso acesse o terminal na pasta raiz e execute:
-    -> docker-compose up -d
+    -> ```docker-compose up -d```
  ps.: para validar se os containers estão executando corretamente, 
-    execute -> docker ps
+    execute -> ```docker ps```
  deverá aparecer dois container, um do apache e outro do mysql.
 
  Para validar se a aplicação base está configurada corretamente, 
