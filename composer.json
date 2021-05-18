@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Source\\": "src/"
+        },
+        "files":[
+            "/var/www/html/src/Config.php"
+        ]
+    },
+    "require": {}
+}
