@@ -31,12 +31,12 @@ As tecnologias utilizadas para o desenvolvimento da aplicação base foram:
  
  ### Subindo os containers
 
- Apos atender os requistos, vamos começar a configurar seu ambiente.
+ Após atender os requistos, vamos começar a configurar seu ambiente.
  
  * Acesse através de um terminal a pasta raiz do projeto
  * Execute no terminal ```composer install```
    
-    ps.: será criado uma pasta vendor e um arquivo composer.lock na raiz do seu projeto
+    ps.: será criado uma pasta ```vendor``` e um arquivo ```composer.lock``` na raiz do seu projeto
  
  * Agora vamos subir os containers, para isso acesse o terminal na pasta raiz e execute:
     -> ```docker-compose up -d```
