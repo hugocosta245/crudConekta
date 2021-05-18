@@ -16,6 +16,7 @@ As tecnologias utilizadas para o desenvolvimento da aplicação base foram:
 ## Configuração rápida
  ### Requisitos
  * Tenha o Docker e Docker-Compose instalado em sua maquina;
+ 
  link_ref.: https://hub.docker.com/editions/community/docker-ce-desktop-windows
  ps.: para validar a instalação execute em um terminal:
 		* ```docker --version``` (deverá aparecer a versão instalada)
