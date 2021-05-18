@@ -1,6 +1,6 @@
 # Desafio FullStack Jr.
 
-Este é um projeto base para alinhamento técnico de desenvolvedor fullstack jr. O mesmo foi montado em cima de imagens docker (apache e mysql), não utilizamos nenhum framework para criação do mesmo, a arquitetura utilizada é o MVC e foi utilizado o composer para a geração do arquivo de autoload.
+Este é um projeto base para alinhamento técnico de desenvolvedor fullstack jr. O mesmo foi construido apartir de imagens docker (apache e mysql), não utilizamos nenhum framework para criação do mesmo, utilizamos arquitetura MVC e o composer para a geração do arquivo de autoload.
 
 As tecnologias utilizadas para o desenvolvimento da aplicação base foram:
 	
@@ -47,17 +47,14 @@ As tecnologias utilizadas para o desenvolvimento da aplicação base foram:
  ### Banco de dados
 
  Ao subir o container, será criado uma tabela ```usuarios``` e será inserido 4 registros na mesma, para mais detalhes da mesma, analisar arquivo ```myDb.sql``` que se encontra na raiz do projeto.
- 
+
 
 ## Objetivos
  * Criar mascara para a coluna CPF;
  * Criar estrutura para poder inserir novo usuario;
-		ps.: utilizar o botão <Novo Usuario> para exibir a view para criar novo usuario,
-		pode fazer na rota /home não há necessidade de criar outra, mas fica a seu critério.
  * Adicionar botão em todas as linhas da tabela para poder excluir usuario do banco;
- * Adicionar botão em todas as linhas da tabela para editar os dados dos usuarios;
- * Adicionar view para editar os dados do usuario.
-		ps.: pode fazer na rota /home não há necessidade de criar outra, mas fica a seu critério.
+ * Adicionar botão em todas as linhas da tabela para editar os dados dos usuarios e criar estrutura para editar os usuarios;
+
 
 ## Analisaremos
  * Logica de programação;
