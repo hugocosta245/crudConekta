@@ -42,7 +42,8 @@ As tecnologias utilizadas para o desenvolvimento da aplicação base foram:
  * Para validar se os containers estão executando corretamente, 
     execute ```docker ps``` deverá aparecer dois container, um do apache e outro do mysql.
 
- * Para validar se a aplicação base está configurada corretamente, acesse seu navegador e insira a url -> http://127.0.0.1:8027/home
+ * Para validar se a aplicação base está configurada corretamente, acesse pelo seu navegador:
+    http://127.0.0.1:8027/home
 
  ### Banco de dados
 
