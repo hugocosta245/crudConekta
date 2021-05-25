@@ -1,3 +1,9 @@
+# Olá.
+
+comprir todos os requido abaixo 
+ass
+Hugo Costa
+
 # Desafio FullStack Jr.
 
 Este é um projeto base para alinhamento técnico de desenvolvedor fullstack jr. O mesmo foi construido apartir de imagens docker (apache e mysql), não utilizamos nenhum framework para criação do mesmo, utilizamos arquitetura MVC e o composer para a geração do arquivo de autoload.
