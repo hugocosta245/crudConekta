@@ -17,8 +17,9 @@ try{
           $controlador->indexAction();
         }else{
           $controlador->{$action}();
-        }
-        
+        }        
+        break;
+    case 'addUsuario':
         break;
     default:
         http_response_code(404);
