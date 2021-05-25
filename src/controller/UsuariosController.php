@@ -60,6 +60,30 @@ class UsuariosController
             ));
         }
     }
+    public function editaUsuarios(){
+
+        
+        $response = $this->ValidacaoCampos($_POST);
+
+        if ($response['result'] == 'erro' ) {
+            echo json_encode($response);
+        }
+
+        if (!UsuarioModel::editUsuer($response['data'])) {
+            $result = UsuarioModel::buscaPorIdUsuer($response['data']['id']);
+            echo json_encode(array(
+                "result" => "sucesso",
+                "data" => $result
+            ));
+
+        } else {
+
+            echo json_encode(array(
+                "result" => "erroInserir",                
+                "messagem" => "Erro ao inserie no banco.",
+            ));
+        }
+    }
 
     public function ValidacaoCampos($postArray){       
 
@@ -86,7 +110,7 @@ class UsuariosController
                             "messagem" => "O campo esta vazio!",
                         );
                     }
-                    break;
+                    break;                
                 case 'cpf':
                     // Extrai somente os números
                     $postArray[$key] = preg_replace( '/[^0-9]/is', '', $value );
@@ -106,6 +130,16 @@ class UsuariosController
                             "messagem" => "Não foi possivel inserir dados!",
                         );
                     }
+                    break;
+                case 'id':
+                    // Extrai somente os números
+                    $postArray[$key] = preg_replace( '/[^0-9]/is', '', $value );
+                    // evitar injeção de sql                  
+                    $postArray[$key] = preg_replace('/[^[:alnum:]_]/', '',$postArray[$key]);
+                    break;
+                case 'campo':                    
+                    // evitar injeção de sql   
+                    $postArray[$key] = preg_replace('/[^[:alpha:]_]/', '',$value);
                     break;
             }
         } 

@@ -37,11 +37,12 @@
   </div>
 </div>
 
+<div class="text-left">
+  <span>Click na celula desejada para editar.</span>
+</div>
 
 <div class="cadastro text-right">
   <button class="btn btn-primary mb-2" data-toggle="modal" data-target="#ExemploModalCentralizado"> Novo Usuario </button>
- 
-
 </div>
 <div class="listaUsuarios">
   <table class="table" id="tabelaUsuarios" border="1">
@@ -77,23 +78,70 @@
       })
 
       $("#btnAtualizar").on("click", function(){
-        console.log("Atualizar lista")
-      })
+        window.location.reload();
+      })      
   })
 
 
+$(document).on("dblclick", "td", function(){
+        let conteudoOriginal = $(this).text();
+        let nomeCelula = $(this).attr("name");
+        let idUsuario = $(this).attr("idValue");
+
+        $(this).addClass("celulaEmEdicao");
+        if (nomeCelula == 'cpf') { 
+          $(this).html("<input class='inputDocumento' type='text' value='" + conteudoOriginal + "' onkeypress='$(this).mask('000.000.000-00');'' />");
+            $('.inputDocumento').mask('000.000.000-00');
+        } else {
+          $(this).html("<input type='text' value='" + conteudoOriginal + "' />");
+          
+        }
+      
+        $(this).children().first().focus();
+
+        $(this).children().first().keypress(function (e) {
+            if (e.which == 13) {
+                var novoConteudo = $(this).val();
+                editUser(nomeCelula, novoConteudo , idUsuario )
+                $(this).parent().text(novoConteudo);
+                $(this).parent().removeClass("celulaEmEdicao");
+
+            }
+        });
+
+	      $(this).children().first().blur(function(){
+	      	$(this).parent().text(conteudoOriginal);
+	      	$(this).parent().removeClass("celulaEmEdicao");
+	      });
+ });  
 
   
 
-  $("#addUsuario").click(function() {
-    addUsuario()    
+  function editUser(nomeCelula, novoConteudo, idUsuario){    
+    let url = "/home/?action=editaUsuarios";  
+    
+    $.ajax({
+          url: url,
+          type: 'POST',
+          dataType: 'json',
+          data: {id: idUsuario, valor: novoConteudo, campo: nomeCelula }  
+      })
+      .done(function(dados){
 
-  })
+        if(dados.result === 'sucesso') {  
+          //window.location.reload()
+          $.notify(`Dados alterados usuario: ${dados.data.nome} ${dados.data.sobrenome} do CPF ${dados.data.cpf}`, "success");
+          
+        } else if(dados.result === 'erroInserir') {          
+          $.notify("Não foi possivel alterar os dados !", "error");
+        
+        }
+        
+      })
+  }
   function deleteUser(obj){  
 
     let url = "/home/?action=deleteUsuarios";
-
-    console.log(obj.value);
 
     $.ajax({
           url: url,
@@ -117,7 +165,8 @@
       })
   }
 
-  function addUsuario() {
+
+  $("#addUsuario").click(function() {
     
     let valueInputNome      = $("#inputNome").val()
     let valueInputSobrenome = $("#inputSobreNome").val()
@@ -157,7 +206,7 @@
          
           console.log("erroo",dados)
       })
-  }
+  })
 
 
   function montarGrid(usuarios){
@@ -166,20 +215,19 @@
     usuarios.forEach(usuario => {
        linha += `<tr>
         <th align='center'> ${++ordem} </th>
-        <td>${usuario.nome}</td>
-        <td> ${usuario.sobrenome} </td>
-        <td align='center'> ${usuario.cpf} </td>
-        <td class="acao">
-                    <button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></button>
-        
-                    <button  class="btn btn-danger btn-sm rounded-0" type="button" id="deleteUsuario" data-toggle="tooltip" data-placement="top" title="Delete" value="${usuario.id}"  onClick="deleteUser(this)"><i class="fa fa-trash"></i></button>
-           
+        <td name="name" idValue="${usuario.id}" >${usuario.nome}</td>
+        <td name="sobrenome" idValue="${usuario.id}" > ${usuario.sobrenome} </td>
+        <td class="documento" align='center' name="cpf" idValue="${usuario.id}"'> ${usuario.cpf} </td>
+        <th class="acao">
+            <button  class="btn btn-danger btn-sm rounded-0" type="button" id="deleteUsuario" data-toggle="tooltip" data-placement="top" title="Delete" value="${usuario.id}"  onClick="deleteUser(this)"><i class="fa fa-trash"></i></button>
         </td>
       `
     });
 
-    $("#tabelaUsuarios tbody").html(linha)
+    $("#tabelaUsuarios tbody").append(linha)
+    $('.documento').mask('000.000.000-00');
   }
+
 
 </script>   
 

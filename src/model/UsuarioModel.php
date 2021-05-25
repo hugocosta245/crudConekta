@@ -24,7 +24,7 @@ abstract class UsuarioModel{
     public static function addUsuer($data){
         $database = ConexaoBD::connectDB();      
         $query =  "INSERT INTO usuarios (nome, sobrenome, cpf, editavel) VALUES (?, ?, ?, 1)";
-        $stmt = $database->prepare($query);        
+        $stmt = $database->prepare($query);     
         $stmt->bind_param("sss", $data['name'], $data['sobrenome'], $data['cpf']);
         $result = $stmt->execute();        
         return $result;
@@ -50,4 +50,22 @@ abstract class UsuarioModel{
         $result = $stmt->get_result();
         return $result->fetch_assoc();
     }
+    public static function editUsuer($data){
+        $database = ConexaoBD::connectDB();
+
+        if ($data['campo'] == 'name') {
+
+            $campo = 'nome';
+        }else{
+
+            $campo = $data['campo'];
+        }
+
+        $query = 'UPDATE usuarios SET '.$campo.' = ? WHERE id = ?';  
+        $stmt = $database->prepare($query);            
+        $stmt->bind_param("ss",  $data['valor'], $data['id']);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result;
+    }   
 }
